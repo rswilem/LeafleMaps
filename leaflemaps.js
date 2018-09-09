@@ -85,6 +85,11 @@ var _marker = function(markerParameters) {
 
   if (markerParameters.icon)
   {
+    if (!markerParameters.icon.url) {
+      var iconUrl = markerParameters.icon
+      markerParameters.icon = {url: iconUrl};
+    }
+    
     var iconParams = {
       iconUrl: markerParameters.icon.url
     };
