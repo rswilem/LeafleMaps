@@ -105,6 +105,10 @@ var _marker = function(markerParameters) {
     marker.setIcon(icon);
   }
 
+  if (markerParameters.animation) {
+    console.log("[LeafleMaps] Marker animations are not supported yet!");
+  }
+
   marker.addListener = function(event, callback) {
     marker.on(event, callback.bind(this.marker));
   };
@@ -213,7 +217,7 @@ function injectHead(completion) {
       js = d.createElement('style'); js.id = id;
       js.innerHTML = ".leaflet-routing-container-hide { display: none; } .leaflet-container {z-index: 0}";
       fjs.appendChild(js, fjs);
-  }(document, 'style', 'custom-css'));
+  }(document, 'head', 'custom-css'));
 
   (function(d, s, id){
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -286,6 +290,12 @@ var google = {
     DirectionsService: _directionsService.bind(this),
     DirectionsRenderer: _directionsRenderer.bind(this),
     TravelMode: _travelMode.bind(this),
+    Animation: {
+      NORMAL: "NORMAL",
+      NONE: "NONE",
+      DROP: "DROP",
+      BOUNCE: "BOUNCE"
+    },
     DirectionsStatus: {
       OK: "OK",
       NOT_FOUND: "NOT_FOUND",
