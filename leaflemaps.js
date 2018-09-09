@@ -65,12 +65,26 @@ var _map = function(domObject, mapParameters) {
   L.tileLayer(tileURL, parameters).addTo(this.map);
 
   this.map.setCenter = function() {
-    console.log("override");
+    console.log("[LeafleMaps] map.setCenter not implemented yet.");
   };
 
   this.map.setPosition = function() {
-    console.log("override");
+    console.log("[LeafleMaps] map.setPosition not implemented yet.");
   };
+
+  if (mapParameters.scrollwheel) {
+    this.map.scrollWheelZoom.enable();
+  }
+  else {
+    this.map.scrollWheelZoom.disable();
+  }
+
+  if (mapParameters.draggable) {
+    this.map.dragging.enable();
+  }
+  else {
+    this.map.dragging.disable();
+  }
 
   return this.map;
 };
@@ -89,7 +103,7 @@ var _marker = function(markerParameters) {
       var iconUrl = markerParameters.icon
       markerParameters.icon = {url: iconUrl};
     }
-    
+
     var iconParams = {
       iconUrl: markerParameters.icon.url
     };
@@ -111,7 +125,7 @@ var _marker = function(markerParameters) {
   }
 
   if (markerParameters.animation) {
-    console.log("[LeafleMaps] Marker animations are not supported yet!");
+    console.log("[LeafleMaps] Marker animations are not supported yet.");
   }
 
   marker.addListener = function(event, callback) {
