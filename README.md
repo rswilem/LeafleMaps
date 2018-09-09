@@ -9,6 +9,12 @@ Change your current script tag with the script tag below, and a LeafletJS map wi
 <script type="text/javascript" src="leaflemaps.js"></script>
 ```
 
+#### JSONP Callback
+LeafleMaps supports a JSONP like callback using the `callback` query parameter. In order to call the function `initMap` upon page load, configure your script tag as follows:
+```html
+<script type="text/javascript" src="leaflemaps.js?callback=initMap"></script>
+```
+
 #### Customizing map tiles
 By default, LeafleMaps uses OpenStreetMap tiles to render the map. LeafleMaps has support for custom map tiles. Simply add the `tileurl` parameter to your script tag, like in the example below.
 ```html
