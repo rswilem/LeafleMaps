@@ -64,12 +64,16 @@ var _map = function(domObject, mapParameters) {
 
   L.tileLayer(tileURL, parameters).addTo(this.map);
 
+  if (mapParameters.styles) {
+    console.debug("[LeafleMaps] Map styles are not implemented yet.");
+  }
+
   this.map.setCenter = function() {
-    console.log("[LeafleMaps] map.setCenter not implemented yet.");
+    console.debug("[LeafleMaps] map.setCenter not implemented yet.");
   };
 
   this.map.setPosition = function() {
-    console.log("[LeafleMaps] map.setPosition not implemented yet.");
+    console.debug("[LeafleMaps] map.setPosition not implemented yet.");
   };
 
   if (mapParameters.scrollwheel) {
@@ -125,7 +129,7 @@ var _marker = function(markerParameters) {
   }
 
   if (markerParameters.animation) {
-    console.log("[LeafleMaps] Marker animations are not supported yet.");
+    console.debug("[LeafleMaps] Marker animations are not supported yet.");
   }
 
   marker.addListener = function(event, callback) {
